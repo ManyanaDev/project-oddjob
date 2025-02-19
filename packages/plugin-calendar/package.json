@@ -36,7 +36,8 @@
     "lint": "eslint",
     "lint:fix": "eslint ./src --fix",
     "prepublishOnly": "pnpm clean && pnpm build",
-    "release": "npm publish"
+    "release": "npm publish",
+    "version": "changeset version"
   },
   "dependencies": {
     "@changesets/cli": "^2.28.0",
@@ -57,8 +58,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
-    "@oddjob/eslint-config": "workspace:*",
-    "@oddjob/types": "workspace:*",
+    "oddjob-eslint-config": "workspace:*",
+    "oddjob-types": "workspace:*",
     "@swc-node/register": "1.10.9",
     "@swc/cli": "0.6.0",
     "@swc/jest": "^0.2.37",

@@ -1,5 +1,5 @@
 {
-  "extends": "@oddjob/typescript-config/nextjs.json",
+  "extends": "oddjob-typescript-config/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

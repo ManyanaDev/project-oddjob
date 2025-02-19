@@ -1,3 +1,3 @@
-# `@oddjob/typescript-config`
+# `oddjob-typescript-config`
 
 Shared typescript configuration for the workspace.

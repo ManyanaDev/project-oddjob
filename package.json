@@ -7,11 +7,13 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "release": "turbo run build && changeset version && changeset publish"
+    "release": "turbo run build && changeset version && changeset publish",
+    "version": "changeset version"
   },
   "devDependencies": {
-    "@oddjob/eslint-config": "workspace:*",
-    "@oddjob/typescript-config": "workspace:*",
+    "husky": "^9.1.7",
+    "oddjob-eslint-config": "workspace:*",
+    "oddjob-typescript-config": "workspace:*",
     "prettier": "^3.2.5",
     "turbo": "^2.3.0",
     "typescript": "5.5.4"
