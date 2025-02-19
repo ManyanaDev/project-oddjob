@@ -39,7 +39,7 @@
     "release": "pnpm build && pnpm publish"
   },
   "dependencies": {
-    "@oddjob/ui": "workspace:*",
+    "oddjob-ui": "workspace:*",
     "@payloadcms/db-mongodb": "latest",
     "@payloadcms/next": "latest",
     "@payloadcms/payload-cloud": "latest",

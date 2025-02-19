@@ -6,7 +6,7 @@
       "@/*": [
         "./*"
       ],
-      "@oddjob/ui/*": [
+      "oddjob-ui/*": [
         "../../packages/ui/src/*"
       ]
     },

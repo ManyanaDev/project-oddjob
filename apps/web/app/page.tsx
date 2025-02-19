@@ -1,4 +1,4 @@
-import { Button } from "@oddjob/ui/components/button";
+import { Button } from "oddjob-ui/components/button";
 import type { User } from "@oddjob/types/payload";
 
 async function getUsers() {

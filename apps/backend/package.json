@@ -21,7 +21,7 @@
     "@payloadcms/richtext-lexical": "latest",
     "@payloadcms/ui": "^3.23.0",
     "@oddjob/plugin-calendar": "workspace:*",
-    "@oddjob/ui": "workspace:*",
+    "oddjob-ui": "workspace:*",
     "classnames": "^2.5.1",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",

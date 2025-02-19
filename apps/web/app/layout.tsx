@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 
-import "@oddjob/ui/globals.css";
+import "oddjob-ui/globals.css";
 import { Providers } from "@/components/providers";
 
 const fontSans = Geist({

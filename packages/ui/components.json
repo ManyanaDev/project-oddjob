@@ -11,10 +11,10 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@oddjob/ui/components",
-    "utils": "@oddjob/ui/lib/utils",
-    "hooks": "@oddjob/ui/hooks",
-    "lib": "@oddjob/ui/lib",
-    "ui": "@oddjob/ui/components"
+    "components": "oddjob-ui/components",
+    "utils": "oddjob-ui/lib/utils",
+    "hooks": "oddjob-ui/hooks",
+    "lib": "oddjob-ui/lib",
+    "ui": "oddjob-ui/components"
   }
 }
