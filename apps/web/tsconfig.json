@@ -11,12 +11,6 @@
       ],
       "oddjob-types/*": [
         "../../packages/types/src/*"
-      ],
-      "oddjob-eslint-config/*": [
-        "../../packages/eslint-config/src/*"
-      ],
-      "oddjob-typescript-config/*": [
-        "../../packages/typescript-config/src/*"
       ]
     },
     "plugins": [

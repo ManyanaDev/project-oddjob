@@ -8,9 +8,13 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "release": "turbo run build && changeset version && changeset publish",
-    "version": "changeset version"
+    "version": "changeset version",
+    "prepare": "husky",
+    "cz": "git-cz",
+    "test": "echo 'test'"
   },
   "devDependencies": {
+    "git-cz": "^4.9.0",
     "husky": "^9.1.7",
     "oddjob-eslint-config": "workspace:*",
     "oddjob-typescript-config": "workspace:*",
