@@ -6,7 +6,7 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-import { pluginCalendar } from '@oddjob/plugin-calendar'
+import { pluginCalendar } from 'payload-plugin-calendar'
 
 import { Tasks } from './collections/Tasks'
 import { Users } from './collections/Users'

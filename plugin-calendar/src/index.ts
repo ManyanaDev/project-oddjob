@@ -64,10 +64,10 @@ export const pluginCalendar =
     }
 
     // config.admin.components.beforeDashboard.push(
-    //   `@oddjob/plugin-calendar/client#BeforeDashboardClient`,
+    //   `payload-plugin-calendar/client#BeforeDashboardClient`,
     // )
     // config.admin.components.beforeDashboard.push(
-    //   `@oddjob/plugin-calendar/rsc#BeforeDashboardServer`,
+    //   `payload-plugin-calendar/rsc#BeforeDashboardServer`,
     // )
 
     console.log(pluginOptions.events)
@@ -75,7 +75,7 @@ export const pluginCalendar =
     config.admin.components.views.calendar = {
       Component: {
         exportName: 'Calendar',
-        path: '@oddjob/plugin-calendar/rsc#Calendar',
+        path: 'payload-plugin-calendar/rsc#Calendar',
         serverProps: {
           events: pluginOptions.events,
         },
@@ -84,7 +84,7 @@ export const pluginCalendar =
     }
 
     config.admin.components.afterNavLinks.push({
-      path: '@oddjob/plugin-calendar/rsc#CalendarNavLink',
+      path: 'payload-plugin-calendar/rsc#CalendarNavLink',
       exportName: 'CalendarNavLink',
       serverProps: {
         label: 'Calendar',
