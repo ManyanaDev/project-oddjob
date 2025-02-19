@@ -4,6 +4,7 @@
   "description": "A blank template to get started with Payload 3.0",
   "license": "MIT",
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
     "dev": "PORT=3001 cross-env NODE_OPTIONS=--no-deprecation next dev",
