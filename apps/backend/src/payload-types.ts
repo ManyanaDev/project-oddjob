@@ -69,7 +69,6 @@ export interface Config {
     media: Media;
     tasks: Task;
     chores: Chore;
-    'plugin-collection': PluginCollection;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -80,7 +79,6 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     tasks: TasksSelect<false> | TasksSelect<true>;
     chores: ChoresSelect<false> | ChoresSelect<true>;
-    'plugin-collection': PluginCollectionSelect<false> | PluginCollectionSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -185,16 +183,6 @@ export interface Chore {
   daysOfWeek?: ('monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday')[] | null;
   completed?: boolean | null;
   completedOn?: string | null;
-  addedByPlugin?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "plugin-collection".
- */
-export interface PluginCollection {
-  id: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -220,10 +208,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'chores';
         value: string | Chore;
-      } | null)
-    | ({
-        relationTo: 'plugin-collection';
-        value: string | PluginCollection;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -330,16 +314,6 @@ export interface ChoresSelect<T extends boolean = true> {
   daysOfWeek?: T;
   completed?: T;
   completedOn?: T;
-  addedByPlugin?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "plugin-collection_select".
- */
-export interface PluginCollectionSelect<T extends boolean = true> {
-  id?: T;
   updatedAt?: T;
   createdAt?: T;
 }

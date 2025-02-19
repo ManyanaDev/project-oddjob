@@ -1,1 +1,1 @@
-export { BeforeDashboardClient } from '../components/BeforeDashboardClient'
+export { CalendarClient } from '../components/calendar/client/View'

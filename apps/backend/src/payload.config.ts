@@ -43,6 +43,14 @@ export default buildConfig({
       collections: {
         chores: true,
       },
+      events: {
+        chores: {
+          selector: 'dueDate',
+          options: {
+            theme: 'bulbasaur',
+          },
+        },
+      },
     }),
     // storage-adapter-placeholder
   ],

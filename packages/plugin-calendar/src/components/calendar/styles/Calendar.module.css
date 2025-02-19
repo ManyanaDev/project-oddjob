@@ -1,0 +1,52 @@
+.calendarWrapper {
+  padding-bottom: 10px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.day {
+  padding: 10px;
+  background-color: #333;
+  text-align: center;
+  height: 120px;
+}
+
+.today {
+  background-color: #a1b1c1;
+}
+
+.emptyDay {
+  padding: 10px;
+  background-color: #212121;
+  text-align: center;
+  height: 120px;
+}
+
+.dayOfWeek {
+  background-color: #222;
+  text-align: center;
+  padding: 10px;
+}
+
+/* themes  */
+.pikachu {
+  background-color: #ffd700;
+}
+
+.charmander {
+  background-color: #ff4500;
+}
+
+.bulbasaur {
+  background-color: #7cfc00;
+}
