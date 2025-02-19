@@ -36,7 +36,7 @@
     "lint": "eslint",
     "lint:fix": "eslint ./src --fix",
     "prepublishOnly": "pnpm clean && pnpm build",
-    "test": "jest"
+    "release": "pnpm build && pnpm publish"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "latest",
