@@ -2,8 +2,8 @@ import type { AdminViewProps, CollectionSlug, Payload } from 'payload'
 import { DefaultTemplate } from '@payloadcms/next/templates'
 import { Gutter } from '@payloadcms/ui'
 
-import { CalendarClient, Event } from '../client/View.js'
-import { PluginCalendarConfig } from '../../../index.js'
+import { CalendarClient, Event } from '../client/View'
+import { PluginCalendarConfig } from '../../../index'
 
 async function getCalendarEvents(
   collections: PluginCalendarConfig['events'],
