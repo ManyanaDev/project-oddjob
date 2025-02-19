@@ -10,6 +10,7 @@ async function getCalendarEvents(
   payload: Payload,
 ): Promise<Event[]> {
   const events = [] as Event[]
+  // test
 
   for (const collection in collections) {
     const { docs } = await payload.find({ collection: collection as CollectionSlug })
