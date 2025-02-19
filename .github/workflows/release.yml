@@ -3,8 +3,10 @@ name: Release
 
 on:
   push:
-    paths:
-      - "packages/plugin-calendar/**"
+    branches:
+      - main
+    # paths:
+    #   - "packages/plugin-calendar/**"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
