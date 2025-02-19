@@ -36,7 +36,7 @@
     "lint": "eslint",
     "lint:fix": "eslint ./src --fix",
     "prepublishOnly": "pnpm clean && pnpm build",
-    "release": "pnpm build && pnpm publish"
+    "release": "npm publish"
   },
   "dependencies": {
     "oddjob-ui": "workspace:*",
