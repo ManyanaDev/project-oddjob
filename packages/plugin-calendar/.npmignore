@@ -1,0 +1,31 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build artifacts
+src/
+build/
+
+# Ignore test files
+test/
+tests/
+*.spec.js
+*.test.js
+
+# Ignore configuration files
+*.config.js
+*.config.json
+
+# Ignore logs
+*.log
+
+# Ignore environment files
+.env
+.env.local
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
+# Ignore temporary files
+*.tmp
+*.swp
