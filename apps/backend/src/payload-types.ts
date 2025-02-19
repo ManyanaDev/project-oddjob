@@ -69,6 +69,8 @@ export interface Config {
     media: Media;
     tasks: Task;
     chores: Chore;
+    'analytics-events': AnalyticsEvent;
+    'analytics-sessions': AnalyticsSession;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +81,8 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     tasks: TasksSelect<false> | TasksSelect<true>;
     chores: ChoresSelect<false> | ChoresSelect<true>;
+    'analytics-events': AnalyticsEventsSelect<false> | AnalyticsEventsSelect<true>;
+    'analytics-sessions': AnalyticsSessionsSelect<false> | AnalyticsSessionsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -188,6 +192,53 @@ export interface Chore {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics-events".
+ */
+export interface AnalyticsEvent {
+  id: string;
+  timestamp: string;
+  session_id: string | AnalyticsSession;
+  domain: string;
+  path: string;
+  query_params?: string | null;
+  referrer_url?: string | null;
+  ip_hash: string;
+  user_agent?: string | null;
+  device_type?: ('desktop' | 'mobile' | 'tablet') | null;
+  os?: string | null;
+  browser?: string | null;
+  country?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics-sessions".
+ */
+export interface AnalyticsSession {
+  id: string;
+  ip_hash: string;
+  domain: string;
+  session_start: string;
+  session_end?: string | null;
+  user_agent?: string | null;
+  device_type?: ('desktop' | 'mobile' | 'tablet') | null;
+  os?: string | null;
+  browser?: string | null;
+  country?: string | null;
+  duration?: number | null;
+  utm?: {
+    source?: string | null;
+    medium?: string | null;
+    campaign?: string | null;
+    term?: string | null;
+    content?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -208,6 +259,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'chores';
         value: string | Chore;
+      } | null)
+    | ({
+        relationTo: 'analytics-events';
+        value: string | AnalyticsEvent;
+      } | null)
+    | ({
+        relationTo: 'analytics-sessions';
+        value: string | AnalyticsSession;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -314,6 +373,53 @@ export interface ChoresSelect<T extends boolean = true> {
   daysOfWeek?: T;
   completed?: T;
   completedOn?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics-events_select".
+ */
+export interface AnalyticsEventsSelect<T extends boolean = true> {
+  timestamp?: T;
+  session_id?: T;
+  domain?: T;
+  path?: T;
+  query_params?: T;
+  referrer_url?: T;
+  ip_hash?: T;
+  user_agent?: T;
+  device_type?: T;
+  os?: T;
+  browser?: T;
+  country?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics-sessions_select".
+ */
+export interface AnalyticsSessionsSelect<T extends boolean = true> {
+  ip_hash?: T;
+  domain?: T;
+  session_start?: T;
+  session_end?: T;
+  user_agent?: T;
+  device_type?: T;
+  os?: T;
+  browser?: T;
+  country?: T;
+  duration?: T;
+  utm?:
+    | T
+    | {
+        source?: T;
+        medium?: T;
+        campaign?: T;
+        term?: T;
+        content?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

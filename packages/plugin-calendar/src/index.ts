@@ -31,34 +31,6 @@ export const pluginCalendar =
       config.collections = []
     }
 
-    // config.collections.push({
-    //   slug: 'plugin-collection',
-    //   fields: [
-    //     {
-    //       name: 'id',
-    //       type: 'text',
-    //     },
-    //   ],
-    // })
-
-    // if (pluginOptions.collections) {
-    //   for (const collectionSlug in pluginOptions.collections) {
-    //     const collection = config.collections.find(
-    //       (collection) => collection.slug === collectionSlug,
-    //     )
-
-    //     if (collection) {
-    //       collection.fields.push({
-    //         name: 'addedByPlugin',
-    //         type: 'text',
-    //         admin: {
-    //           position: 'sidebar',
-    //         },
-    //       })
-    //     }
-    //   }
-    // }
-
     /**
      * If the plugin is disabled, we still want to keep added collections/fields so the database schema is consistent which is important for migrations.
      * If your plugin heavily modifies the database schema, you may want to remove this property.
@@ -92,10 +64,10 @@ export const pluginCalendar =
     }
 
     // config.admin.components.beforeDashboard.push(
-    //   `@workspace/plugin-calendar/client#BeforeDashboardClient`,
+    //   `@oddjob/plugin-calendar/client#BeforeDashboardClient`,
     // )
     // config.admin.components.beforeDashboard.push(
-    //   `@workspace/plugin-calendar/rsc#BeforeDashboardServer`,
+    //   `@oddjob/plugin-calendar/rsc#BeforeDashboardServer`,
     // )
 
     console.log(pluginOptions.events)
@@ -103,7 +75,7 @@ export const pluginCalendar =
     config.admin.components.views.calendar = {
       Component: {
         exportName: 'Calendar',
-        path: '@workspace/plugin-calendar/rsc#Calendar',
+        path: '@oddjob/plugin-calendar/rsc#Calendar',
         serverProps: {
           events: pluginOptions.events,
         },
@@ -112,7 +84,7 @@ export const pluginCalendar =
     }
 
     config.admin.components.afterNavLinks.push({
-      path: '@workspace/plugin-calendar/rsc#CalendarNavLink',
+      path: '@oddjob/plugin-calendar/rsc#CalendarNavLink',
       exportName: 'CalendarNavLink',
       serverProps: {
         label: 'Calendar',
@@ -136,22 +108,28 @@ export const pluginCalendar =
         await incomingOnInit(payload)
       }
 
-      const { totalDocs } = await payload.count({
-        collection: 'plugin-collection' as CollectionSlug,
-        where: {
-          id: {
-            equals: 'seeded-by-plugin',
-          },
-        },
-      })
+      try {
+        const collections = Object.keys(pluginOptions.events || {})
+        console.log('collections', collections)
+        for (const collection of collections) {
+          console.log('collection', collection)
+          const { totalDocs } = await payload.count({
+            collection: collection as CollectionSlug,
+          })
 
-      if (totalDocs === 0) {
-        await payload.create({
-          collection: 'plugin-collection' as CollectionSlug,
-          data: {
-            id: 'seeded-by-plugin',
-          },
-        })
+          console.log('totalDocs', totalDocs)
+
+          // if (totalDocs === 0) {
+          //     await payload.create({
+          //       collection: collection as CollectionSlug,
+          //       data: {
+          //         id: 'seeded-by-plugin',
+          //       },
+          //     })
+          //   }
+        }
+      } catch (error) {
+        console.error(error)
       }
     }
 

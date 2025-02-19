@@ -1,5 +1,5 @@
-import { Button } from "@workspace/ui/components/button";
-import type { User } from "@workspace/types/payload";
+import { Button } from "@oddjob/ui/components/button";
+import type { User } from "@oddjob/types/payload";
 
 async function getUsers() {
   try {
